@@ -43,7 +43,7 @@ public class MergeSort {
      * @param indexMid mid index
      * @param indexEnd end index
      */
-    static void merge(int[] arr, int indexStart, int indexMid, int indexEnd) {
+    private static void merge(int[] arr, int indexStart, int indexMid, int indexEnd) {
         /*
         merge(A, s, m, e)
         n1 = m - s + 1
