@@ -2,6 +2,10 @@ package com.ammyhaber.algorithms.sort.insertion;
 
 import java.util.Random;
 
+/**
+ * insertion sort is not fast in large size array test ,but ok in a very small size array.
+ * and it use little memory
+ */
 public class InsertionSortLargeTest {
 
     public static void main(String[] args) {
@@ -14,9 +18,6 @@ public class InsertionSortLargeTest {
          *         A[i+1] = A[i]
          *         i = i - 1
          *     A[i+1] = key
-         *
-         * 插入排序适合排序少量数据，对大量数据的排序效率非常低
-         *
          * */
         long startAt = System.currentTimeMillis();
         int[] arr = new int[100000];
@@ -36,7 +37,7 @@ public class InsertionSortLargeTest {
             arr[i + 1] = key;
         }
         long endAt = System.currentTimeMillis();
-        System.out.println("运行时间：" + (endAt - startAt));
-        System.out.println("排序时间：" + (endAt - sortAt));
+        System.out.println("running time：" + (endAt - startAt));
+        System.out.println("sorting time：" + (endAt - sortAt));
     }
 }
