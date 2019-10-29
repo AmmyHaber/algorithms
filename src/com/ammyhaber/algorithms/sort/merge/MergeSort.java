@@ -2,6 +2,10 @@ package com.ammyhaber.algorithms.sort.merge;
 
 import java.util.Arrays;
 
+/**
+ * merge sort
+ * merge sort is very fast, but use much memory
+ */
 public class MergeSort {
     public static void main(String[] args) {
         int[] arr = {5, 2, 4, 7, 1, 3, 2, 6};
