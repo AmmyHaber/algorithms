@@ -1,4 +1,4 @@
-package com.ammyhaber.algorithms.sort;
+package com.ammyhaber.algorithms.sort.insertion;
 
 import java.util.Arrays;
 
