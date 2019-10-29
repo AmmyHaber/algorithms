@@ -73,6 +73,9 @@ public class MergeSort {
         for (int j = 0; j < rightSize; j++) {
             right[j] = arr[indexMid + 1 + j];
         }
+        // using System.arraycopy is faster than for loop
+        /*System.arraycopy(arr, indexStart, left, 0, leftSize);
+        System.arraycopy(arr, indexMid + 1, right, 0, rightSize);*/
         int i = 0;
         int j = 0;
         for (int k = indexStart; k <= indexEnd; k++) {
