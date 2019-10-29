@@ -25,17 +25,8 @@ public class InsertionSortLargeTest {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = r.nextInt(Integer.MAX_VALUE);
         }
-        int key, i;
         long sortAt = System.currentTimeMillis();
-        for (int j = 1; j < arr.length; j++) {
-            key = arr[j];
-            i = j - 1;
-            while (i >= 0 && arr[i] > key) {
-                arr[i + 1] = arr[i];
-                i--;
-            }
-            arr[i + 1] = key;
-        }
+        InsertionSort.insertionSort(arr);
         long endAt = System.currentTimeMillis();
         System.out.println("running time：" + (endAt - startAt));
         System.out.println("sorting time：" + (endAt - sortAt));
