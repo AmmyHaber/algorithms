@@ -1,15 +1,11 @@
 package com.ammyhaber.algorithms.sort.merge;
 
-import java.util.Random;
+import com.ammyhaber.algorithms.sort.RandomArrayMaker;
 
 public class MergeSortLargeTest {
     public static void main(String[] args) {
         long startAt = System.currentTimeMillis();
-        int[] arr = new int[100000000];
-        Random r = new Random();
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(Integer.MAX_VALUE);
-        }
+        int[] arr = RandomArrayMaker.make(100000000);
         long sortAt = System.currentTimeMillis();
         MergeSort.mergeSort(arr, 0, arr.length - 1);
         long endAt = System.currentTimeMillis();

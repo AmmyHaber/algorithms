@@ -1,6 +1,6 @@
 package com.ammyhaber.algorithms.sort.insertion;
 
-import java.util.Random;
+import com.ammyhaber.algorithms.sort.RandomArrayMaker;
 
 /**
  * insertion sort is not fast in large size array test ,but ok in a very small size array.
@@ -10,11 +10,7 @@ public class InsertionSortLargeTest {
 
     public static void main(String[] args) {
         long startAt = System.currentTimeMillis();
-        int[] arr = new int[100000];
-        Random r = new Random();
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(Integer.MAX_VALUE);
-        }
+        int[] arr = RandomArrayMaker.make(100000);
         long sortAt = System.currentTimeMillis();
         InsertionSort.insertionSort(arr);
         long endAt = System.currentTimeMillis();
