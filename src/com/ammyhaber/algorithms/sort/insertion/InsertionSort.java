@@ -16,7 +16,7 @@ public class InsertionSort {
          *     A[i+1] = key
          *
          * */
-        int[] arr = {31, 41, 59, 26, 41, 58};
+        int[] arr = {5, 2, 4, 7, 1, 3, 2, 6};
         insertionSort(arr);
         System.out.println(Arrays.toString(arr));
     }
