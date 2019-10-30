@@ -9,16 +9,6 @@ import java.util.Random;
 public class InsertionSortLargeTest {
 
     public static void main(String[] args) {
-        /*
-         *
-         * for j=2 to A.length
-         *     key = A[j]
-         *     i = j - 1
-         *     while i > 0 and A[i] > key
-         *         A[i+1] = A[i]
-         *         i = i - 1
-         *     A[i+1] = key
-         * */
         long startAt = System.currentTimeMillis();
         int[] arr = new int[100000];
         Random r = new Random();
