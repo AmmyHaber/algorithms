@@ -17,6 +17,7 @@ public class RecursiveInsertionSort {
      * use recursive and insertion sort to sort a subarray A[0..n].
      * first use sort method to make subarray A[0..n-1] to be sorted,
      * then insert index n element into a right position into A[0..n-1].
+     * if array size is large , will throw StackOverFlow Exception.
      * @param arr arr array need to be sorted
      * @param n a index, after sort, subarray A[0..n] will be sorted
      *
