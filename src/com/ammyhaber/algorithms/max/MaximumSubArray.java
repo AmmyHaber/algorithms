@@ -1,4 +1,4 @@
-package com.ammyhaber.algorithms;
+package com.ammyhaber.algorithms.max;
 
 import java.util.Arrays;
 
