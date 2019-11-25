@@ -11,6 +11,7 @@ public class MaximumSubArray {
 
     public static void main(String[] args) {
         int[] a = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
+//        int[] a = {-13, -3, -25, -20, -3, -16, -23, -18, -20, -7, -12, -5, -22, -15, -4, -7};
         Result result = maximumSubArray(a, 0, a.length - 1);
         System.out.println(result);
         System.out.println(Arrays.toString(Arrays.copyOfRange(a, result.left, result.right + 1)));
@@ -40,8 +41,8 @@ public class MaximumSubArray {
     private static Result maximumCrossingSubArray(int[] a, int start, int mid, int end) {
         Result result = new Result();
         int leftSum = 0;
-        int maxLeftSum = 0;
-        int left = start;
+        int maxLeftSum = a[mid];
+        int left = mid;
         for (int i = mid; i >= start; i--) {
             leftSum += a[i];
             if (leftSum > maxLeftSum) {
@@ -50,8 +51,8 @@ public class MaximumSubArray {
             }
         }
         int rightSum = 0;
-        int maxRightSum = 0;
-        int right = end;
+        int maxRightSum = a[mid + 1];
+        int right = mid + 1;
         for (int i = mid + 1; i <= end; i++) {
             rightSum += a[i];
             if (rightSum > maxRightSum) {
