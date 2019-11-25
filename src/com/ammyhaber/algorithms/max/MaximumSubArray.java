@@ -66,7 +66,7 @@ public class MaximumSubArray {
         return result;
     }
 
-    private static class Result {
+    static class Result {
         int left;
         int right;
         int sum;
