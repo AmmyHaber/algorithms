@@ -21,7 +21,7 @@ public class InsertionSort {
         System.out.println(Arrays.toString(arr));
     }
 
-    static void insertionSort(int[] arr) {
+    public static void insertionSort(int[] arr) {
         int key;
         int i;
         for (int j = 1; j < arr.length; j++) {
