@@ -1,6 +1,13 @@
 package com.ammyhaber.algorithms.hash;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class ConsistentHash<T> {
     private final int numberOfReplicas;// 节点的复制因子,实际节点个数 * numberOfReplicas =
@@ -57,7 +64,7 @@ public class ConsistentHash<T> {
      */
     public void testBalance() {
         Set<Integer> sets = circle.keySet();// 获得TreeMap中所有的Key
-        SortedSet<Integer> sortedSets = new TreeSet<Integer>(sets);// 将获得的Key集合排序
+        SortedSet<Integer> sortedSets = new TreeSet<>(sets);// 将获得的Key集合排序
         for (Integer hashCode : sortedSets) {
             System.out.println(hashCode);
         }
