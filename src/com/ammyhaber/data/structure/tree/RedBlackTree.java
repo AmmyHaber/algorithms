@@ -31,6 +31,29 @@ public class RedBlackTree<T> {
     }
 
     private void rotateLeft(Node<T> n) {
+        Node<T> r = n.right;
+        if (r == null) {
+            throw new NullPointerException("node's right node is null ,can not rotate left");
+        }
+        Node<T> parent = n.parent;
+
+        n.parent = r;
+        n.right = r.left;
+        r.left = n;
+        if (n.right != null) {
+            n.right.parent = n;
+        }
+        if (parent != null) {
+            if (n == parent.left) {
+                parent.left = r;
+            } else if (n == parent.right) {
+                parent.right = r;
+            }
+        }
+        r.parent = parent;
+    }
+
+    private void rotateRight(Node<T> n) {
 
     }
 
