@@ -19,9 +19,9 @@ public class RecursiveBinarySearch {
         int b = a[11];
         int i = binarySearch(a, 0, a.length - 1, b);
         if (i == -1)
-            System.out.println(String.format("%d is not in the array", b));
+            System.out.printf("%d is not in the array%n", b);
         else
-            System.out.println(String.format("Search %d from array a, the index:%d", b, i));
+            System.out.printf("Search %d from array a, the index:%d%n", b, i);
     }
 
     private static int binarySearch(int[] a, int l, int r, int b) {

@@ -19,9 +19,9 @@ public class IterativeBinarySearch {
         int b = a[10];
         int i = binarySearch(a, b);
         if (i == -1)
-            System.out.println(String.format("%d is not in the array", b));
+            System.out.printf("%d is not in the array%n", b);
         else
-            System.out.println(String.format("Search %d from array a, the index:%d", b, i));
+            System.out.printf("Search %d from array a, the index:%d%n", b, i);
     }
 
     private static int binarySearch(int[] a, int b) {
