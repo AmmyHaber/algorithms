@@ -7,12 +7,9 @@ package com.ammyhaber.leetcode;
 public class Leetcode19 {
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode head = ListNodeUtils.createSimple();
         ListNode n = removeNthFromEnd(head, 5);
-        while (n != null) {
-            System.out.println(n.val);
-            n = n.next;
-        }
+        ListNodeUtils.print(n);
     }
 
     private static ListNode removeNthFromEnd(ListNode head, int n) {
@@ -32,22 +29,5 @@ public class Leetcode19 {
         }
         l.next = l.next.next;
         return head;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }
