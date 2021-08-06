@@ -17,7 +17,7 @@ public class ListNodeUtils {
             sb.append(n.val).append(", ");
             n = n.next;
         }
-        
+
         System.out.println(sb.substring(0, sb.length() - 2) + "]");
     }
 }
