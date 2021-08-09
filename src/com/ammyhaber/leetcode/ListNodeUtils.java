@@ -6,6 +6,21 @@ public class ListNodeUtils {
         return new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
     }
 
+    public static ListNode create(int... vals) {
+        ListNode head = null;
+        ListNode end = null;
+        for (int i = 0; i < vals.length; i++) {
+            if (head == null) {
+                head = new ListNode(vals[i]);
+                end = head;
+                continue;
+            }
+            end.next = new ListNode(vals[i]);
+            end = end.next;
+        }
+        return head;
+    }
+
     public static void print(ListNode head) {
         if (head == null) {
             System.out.println("[]");
