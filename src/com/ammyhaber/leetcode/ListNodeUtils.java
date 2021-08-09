@@ -9,13 +9,13 @@ public class ListNodeUtils {
     public static ListNode create(int... vals) {
         ListNode head = null;
         ListNode end = null;
-        for (int i = 0; i < vals.length; i++) {
+        for (int val : vals) {
             if (head == null) {
-                head = new ListNode(vals[i]);
+                head = new ListNode(val);
                 end = head;
                 continue;
             }
-            end.next = new ListNode(vals[i]);
+            end.next = new ListNode(val);
             end = end.next;
         }
         return head;
