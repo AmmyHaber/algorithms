@@ -29,19 +29,34 @@ public class Leetcode53 {
         return max;
     }
 
+    /**
+     * 使用分治法，将数组分成左右两个子数组。
+     * 每个被拆分的数组，都要记录四个值：
+     * leftSum: 从左边第一个元素为左边界的最大连续子数组的和
+     * rightSum: 从右边第一个元素为右边界的最大连续子数组的和
+     * totalSum: 数组所有元素的总和
+     * maxSum: 最大连续子数组的和
+     *
+     * 数组的这四个值，可以通过自己的左右两个子数组的这四个值分别得出。
+     * 当拆分到数组只有一个元素时，这四个值即为该元素的值。然后递归开始回归。
+     * 最后得出原数组的maxSum即为答案。
+     */
     public static int maxSubArray2(int[] nums) {
         return maxSubArray2OfRange(nums, 0, nums.length - 1).maxSum;
     }
 
     private static Status maxSubArray2OfRange(int[] nums, int l, int r) {
         if (l == r) {
-            return nums[l];
+            return new Status(nums[l], nums[l], nums[l], nums[l]);
         }
-        int m = (l + r)/2;
+        int m = (l + r) >> 1;
         Status leftStatus = maxSubArray2OfRange(nums, l, m);
         Status rightStatus = maxSubArray2OfRange(nums, m + 1, r);
-        int leftSum = Math.max(.leftSum, )
-        return 0;
+        int leftSum = Math.max(leftStatus.leftSum, leftStatus.totalSum + rightStatus.leftSum);
+        int rightSum = Math.max(rightStatus.rightSum, rightStatus.totalSum + leftStatus.rightSum);
+        int totalSum = leftStatus.totalSum + rightStatus.totalSum;
+        int maxSum = Math.max(leftStatus.rightSum + rightStatus.leftSum, Math.max(leftStatus.maxSum, rightStatus.maxSum));
+        return new Status(leftSum, rightSum, maxSum, totalSum);
     }
 
     static class Status {
@@ -49,5 +64,12 @@ public class Leetcode53 {
         int rightSum;
         int maxSum;
         int totalSum;
+
+        Status(int leftSum, int rightSum, int maxSum, int totalSum) {
+            this.leftSum = leftSum;
+            this.rightSum = rightSum;
+            this.maxSum = maxSum;
+            this.totalSum = totalSum;
+        }
     }
 }
