@@ -1,6 +1,8 @@
 package com.ammyhaber.leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 94. 二叉树的中序遍历
@@ -13,7 +15,22 @@ public class Leetcode94 {
     }
 
     public static List<Integer> inorderTraversal(TreeNode root) {
-        return null;
+        TreeNode node = root;
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> r = new ArrayList<>();
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+
+            if (!stack.isEmpty()) {
+                node =  stack.pop();
+                r.add(node.val);
+                node = node.right;
+            }
+        }
+        return r;
     }
 
     static class TreeNode {
