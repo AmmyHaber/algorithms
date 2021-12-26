@@ -1,4 +1,4 @@
-package com.ammyhaber.data.structure.tree;
+package com.ammyhaber.structure.tree;
 
 /**
  * Java implement of red black tree
