@@ -1,6 +1,9 @@
 package com.ammyhaber.leetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 17. 电话号码的字母组合
@@ -13,12 +16,39 @@ import java.util.List;
 public class Leetcode17 {
 
     public static void main(String[] args) {
-        System.out.println(letterCombinations("23"));
+        System.out.println(letterCombinations(""));
     }
 
     public static List<String> letterCombinations(String digits) {
-        return null;
+        Map<String, String> map = new HashMap<>();
+        map.put("2", "abc");
+        map.put("3", "def");
+        map.put("4", "ghi");
+        map.put("5", "jkl");
+        map.put("6", "mno");
+        map.put("7", "pqrs");
+        map.put("8", "tuv");
+        map.put("9", "wxyz");
+        List<String> result = new ArrayList<>();
+        if (digits == null || digits.length() == 0) {
+            return result;
+        }
+        backTrack(digits, map, 0, new StringBuilder(), result);
+        return result;
     }
 
+    private static void backTrack(String digits, Map<String, String> map, int index, StringBuilder sb, List<String> result) {
+        if (index > digits.length() - 1) {
+            result.add(sb.toString());
+            return;
+        }
+        char c = digits.charAt(index);
+        String s = map.get(c + "");
+        for (int i = 0; i < s.length(); i++) {
+            sb.append(s.charAt(i));
+            backTrack(digits, map, index + 1, sb, result);
+            sb.deleteCharAt(index);
+        }
+    }
 
 }
