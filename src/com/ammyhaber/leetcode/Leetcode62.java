@@ -1,11 +1,6 @@
 package com.ammyhaber.leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Leetcode62 {
-
-    private static final Map<String, Integer> cache = new HashMap<>();
 
     public static void main(String[] args) {
         System.out.println(uniquePaths(3, 7));
@@ -14,34 +9,18 @@ public class Leetcode62 {
     }
 
     public static int uniquePaths(int m, int n) {
-        return doCount(m, n);
-    }
-
-    private static int doCount(int m, int n) {
-        if (m == 0 || n == 0) {
-            return 0;
+        int[][] f = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            f[i][0] = 1;
         }
-        if (m == 1 || n == 1) {
-            return 1;
+        for (int j = 0; j < n; ++j) {
+            f[0][j] = 1;
         }
-        String keyA = Math.max(m - 1, n - 1) + "_" + Math.min(m - 1, n - 1);
-        String keyB = Math.max(m - 2, n) + "_" + Math.min(m - 2, n);
-        String keyC = Math.max(m, n - 2) + "_" + Math.min(m, n - 2);
-        Integer a = cache.get(keyA);
-        Integer b = cache.get(keyB);
-        Integer c = cache.get(keyC);
-        if (a == null) {
-            a = doCount(m - 1, n - 1);
-            cache.put(keyA, a);
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                f[i][j] = f[i - 1][j] + f[i][j - 1];
+            }
         }
-        if (b == null) {
-            b = doCount(m - 2, n);
-            cache.put(keyB, b);
-        }
-        if (c == null) {
-            c = doCount(m, n - 2);
-            cache.put(keyC, c);
-        }
-        return a * 2 + b + c;
+        return f[m - 1][n - 1];
     }
 }
