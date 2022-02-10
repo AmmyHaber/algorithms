@@ -16,17 +16,14 @@ public class Leetcode503 {
         Deque<Integer> deque = new ArrayDeque<>();
         int[] result = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            Integer top;
-            while (!deque.isEmpty() && nums[i] > nums[top = deque.peek()]) {
-                deque.pop();
-                result[top] = nums[i];
+            while (!deque.isEmpty() && nums[i] > nums[deque.peek()]) {
+                result[deque.pop()] = nums[i];
             }
             deque.push(i);
         }
         for (int i = 0; !deque.isEmpty() && i <= deque.peekLast(); i++) {
             while (!deque.isEmpty() && nums[i] > nums[deque.peek()]) {
-                result[deque.peek()] = nums[i];
-                deque.pop();
+                result[deque.pop()] = nums[i];
             }
         }
         while (!deque.isEmpty()) {
