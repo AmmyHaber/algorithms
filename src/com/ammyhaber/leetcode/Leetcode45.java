@@ -9,21 +9,17 @@ public class Leetcode45 {
     }
 
     public static int jump(int[] nums) {
-        if (nums.length == 1) {
-            return 0;
-        }
-        int end = nums.length - 1;
-        int tmpEnd = end;
-        int ans = 0;
-        while (tmpEnd > 0) {
-            for (int i = end - 1; i >= 0; i--) {
-                if ((i + nums[i]) >= end) {
-                    tmpEnd = i;
-                }
+        int length = nums.length;
+        int end = 0;
+        int maxPosition = 0;
+        int steps = 0;
+        for (int i = 0; i < length - 1; i++) {
+            maxPosition = Math.max(maxPosition, i + nums[i]);
+            if (i == end) {
+                end = maxPosition;
+                steps++;
             }
-            end = tmpEnd;
-            ans++;
         }
-        return ans;
+        return steps;
     }
 }
