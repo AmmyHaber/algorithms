@@ -16,29 +16,19 @@ public class Leetcode139 {
     }
 
     public static boolean wordBreak(String s, List<String> wordDict) {
-        wordDict.sort((w1, w2) -> w2.length() - w1.length());
-        return dfs(s, wordDict, 0);
-    }
-
-    private static boolean dfs(String s, List<String> wordDict, int index) {
-        if (index == s.length()) {
-            return true;
-        }
-        if (index > s.length()) {
-            return false;
-        }
-        for (String word : wordDict) {
-            int up = index + word.length();
-            if (up > s.length()) {
+        boolean[] b = new boolean[s.length() + 1];
+        b[0] = true;
+        for (int i = 0; i < s.length(); i++) {
+            if (!b[i]) {
                 continue;
             }
-            if (word.equals(s.substring(index, up))) {
-                boolean b = dfs(s, wordDict, up);
-                if (b) {
-                    return true;
+            for (String word : wordDict) {
+                if ((i + word.length()) < b.length && s.startsWith(word, i)) {
+                    b[i + word.length()] = true;
                 }
             }
         }
-        return false;
-    }
+        return b[s.length()];
+   }
+
 }
