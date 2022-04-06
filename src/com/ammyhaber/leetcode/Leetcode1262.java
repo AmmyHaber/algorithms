@@ -1,7 +1,5 @@
 package com.ammyhaber.leetcode;
 
-import java.util.Arrays;
-
 public class Leetcode1262 {
 
     public static void main(String[] args) {
@@ -12,43 +10,16 @@ public class Leetcode1262 {
     }
 
     public static int maxSumDivThree(int[] nums) {
-        Arrays.sort(nums);
-        int[] arr = new int[nums.length];
-        int result = 0;
-        int k = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int m = nums[i] % 3;
-            if (m == 0) {
-                result += nums[i];
-            } else {
-                k += nums[i];
-            }
-            arr[i] = m;
+        int[] remainder = new int[3];
+        for (int num : nums) {
+            int a, b, c;
+            a = remainder[0] + num;
+            b = remainder[1] + num;
+            c = remainder[2] + num;
+            remainder[a % 3] = Math.max(remainder[a % 3], a);
+            remainder[b % 3] = Math.max(remainder[b % 3], b);
+            remainder[c % 3] = Math.max(remainder[c % 3], c);
         }
-        int n = k % 3;
-        int a = 0, b = 0;
-        int c = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                continue;
-            }
-            if (c == 2 && b <= nums[i]) {
-                a = nums[i];
-                break;
-            }
-            if (arr[i] == n) {
-                a = nums[i];
-                break;
-            } else {
-                if (c < 2) {
-                    b += nums[i];
-                    c++;
-                }
-            }
-        }
-        if (c == 2) {
-            return result + k - Math.min(a, b);
-        }
-        return result + k - a;
+        return remainder[0];
     }
 }
