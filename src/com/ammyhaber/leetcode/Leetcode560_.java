@@ -14,8 +14,8 @@ public class Leetcode560_ {
         int count = 0, pre = 0;
         HashMap<Integer, Integer> mp = new HashMap<>();
         mp.put(0, 1);
-        for (int i = 0; i < nums.length; i++) {
-            pre += nums[i];
+        for (int num : nums) {
+            pre += num;
             if (mp.containsKey(pre - k)) {
                 count += mp.get(pre - k);
             }
