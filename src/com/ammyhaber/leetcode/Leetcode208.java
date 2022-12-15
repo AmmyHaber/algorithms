@@ -1,8 +1,6 @@
 package com.ammyhaber.leetcode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Leetcode208 {
@@ -70,7 +68,7 @@ public class Leetcode208 {
             Map<Character, TrieNode> sonMap;
             TrieNode(char c) {
                 this.c = c;
-            };
+            }
 
             void putSon(TrieNode son) {
                 if (son == null || son == root) {
