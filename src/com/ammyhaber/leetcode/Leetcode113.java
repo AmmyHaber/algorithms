@@ -32,7 +32,6 @@ public class Leetcode113 {
                 return;
             }
         }
-        int size = paths.size();
         if (root.left != null) {
             recursive(root.left, results, targetSum, sum, new ArrayList<>(paths));
         }
